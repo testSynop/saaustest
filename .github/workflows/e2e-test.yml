@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main, master, develop, stage ]
   pull_request:
-    branches: [ main,polaris ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
           polaris_prComment_enabled: true
           polaris_assessment_mode: "SOURCE_UPLOAD"
           
-          project.source.archive: "/Users/kirann/bridge-cli-bundle/bridge-cli-bundle-macos_arm/OWASP-NodeGoat.zip" # Path to the source code archive file to be scanned.
+          project_source_archive: "/Users/kirann/bridge-cli-bundle/bridge-cli-bundle-macos_arm/OWASP-NodeGoat.zip" # Path to the source code archive file to be scanned.
           ### Coverity Connect users - Uncomment below
           # coverity_local: true
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
