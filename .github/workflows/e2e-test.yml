@@ -1,0 +1,60 @@
+name: CI-Polaris 
+on:
+  push:
+    branches: [ master, develop, stage ]
+  pull_request:
+    branches: [ polaris ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+      - name: Coverity Scan
+        uses: blackduck-inc/black-duck-security-scan@main
+        with:
+          ### SCANNING: Required fields
+          bridgecli_download_url: "https://artifactory.tools.duckutil.net/artifactory/clops-local/integrations/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip"
+          #bridgecli_download_version: 3.4.25
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          include_diagnostics: true
+          polaris_assessment_types: "SAST,SCA"
+          #polaris_prComment_enabled: true 
+          ### Coverity Connect users - Uncomment below
+          # coverity_local: true
+
+          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+
+          ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
+          polaris_reports_sarif_create: true
+          polaris_upload_sarif_report: true
+          
+         # polaris_reports_sarif_file_path: '/Users/kirann/myagent/_work/OWASP-NodeGoat/OWASP-NodeGoat/.bridge/Polaris SARIF Generator/onereport.sarif.json'
+          #          polaris_reports_sarif_file_path: '/Users/kirann/IdeaProjects/OWASP-NodeGoat/report.sarif.json' # File path (including file name) where SARIF report is created.
+          #polaris_reports_sarif_severities: "HIGH"
+          #include_diagnostics: true
+          #          polaris_reports_sarif_groupSCAIssues: true
+          #          polaris_reports_sarif_issue_types: 'SCA'
+          #          polaris_upload_sarif_report: true
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
+      - name: Polaris PR Scan
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: blackduck-inc/black-duck-security-scan@main
+        #uses: synopsys-sig/synopsys-action@main
+        with:
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_application_name: ${{ github.event.repository.name }}
+          polaris_project_name: ${{ github.event.repository.name }}
+          polaris_assessment_types: "SAST,SCA"
+          ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
+          polaris_prComment_enabled: true
+          polaris_upload_sarif_report: true
+          github_token: ${{ secrets.TOKEN }}
+          #network_airgap: true
+          # include_diagnostics: true
+          # Mandatory when polaris_prComment_enabled is set to 'true'
+          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
