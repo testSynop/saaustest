@@ -47,8 +47,6 @@ jobs:
         with:
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_application_name: ${{ github.event.repository.name }}
-          polaris_project_name: ${{ github.event.repository.name }}
           polaris_assessment_types: "SAST,SCA"
           ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
           polaris_prComment_enabled: true
