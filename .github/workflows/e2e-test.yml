@@ -25,7 +25,6 @@ jobs:
           #polaris_prComment_enabled: true 
           ### Coverity Connect users - Uncomment below
           # coverity_local: true
-
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
 
           ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
