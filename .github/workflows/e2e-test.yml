@@ -24,6 +24,7 @@ jobs:
           polaris_assessment_types: "SAST,SCA"
           polaris_prComment_enabled: true
           polaris_assessment_mode: "SOURCE_UPLOAD"
+          polaris_waitForScan: false
           
           project_source_archive: "/Users/kirann/bridge-cli-bundle/bridge-cli-bundle-macos_arm/OWASP-NodeGoat-master.zip" # Path to the source code archive file to be scanned.
           ### Coverity Connect users - Uncomment below
