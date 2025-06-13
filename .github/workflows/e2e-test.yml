@@ -22,7 +22,7 @@ jobs:
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST,SCA"
-          #polaris_waitForScan: false
+          polaris_waitForScan: false
           #polaris_prComment_enabled: true 
           ### Coverity Connect users - Uncomment below
           # coverity_local: true
