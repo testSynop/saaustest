@@ -16,12 +16,17 @@ jobs:
         uses: blackduck-inc/black-duck-security-scan@main
         with:
           ### SCANNING: Required fields
-          #bridgecli_download_url: "https://artifactory.tools.duckutil.net/artifactory/clops-local/integrations/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip"
+          bridgecli_download_url: "https://artifactory.tools.duckutil.net/artifactory/clops-local/integrations/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip"
           #bridgecli_download_version: 3.4.25
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           #include_diagnostics: true
           polaris_assessment_types: "SAST,SCA"
+          polaris_prComment_enabled: true
+          #polaris_assessment_mode: "SOURCE_UPLOAD"
+          #polaris_waitForScan: false
+          
+         # project_source_archive: "/Users/kirann/bridge-cli-bundle/bridge-cli-bundle-macos_arm/OWASP-NodeGoat-master.zip" # Path to the source code archive file to be scanned.
           ### Coverity Connect users - Uncomment below
           # coverity_local: true
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
@@ -29,6 +34,7 @@ jobs:
           ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
           polaris_reports_sarif_create: true
           polaris_upload_sarif_report: true
+          
          # polaris_reports_sarif_file_path: '/Users/kirann/myagent/_work/OWASP-NodeGoat/OWASP-NodeGoat/.bridge/Polaris SARIF Generator/onereport.sarif.json'
           #          polaris_reports_sarif_file_path: '/Users/kirann/IdeaProjects/OWASP-NodeGoat/report.sarif.json' # File path (including file name) where SARIF report is created.
           #polaris_reports_sarif_severities: "HIGH"
