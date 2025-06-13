@@ -31,7 +31,6 @@ jobs:
           ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
           polaris_reports_sarif_create: true
           polaris_upload_sarif_report: true
-          
          # polaris_reports_sarif_file_path: '/Users/kirann/myagent/_work/OWASP-NodeGoat/OWASP-NodeGoat/.bridge/Polaris SARIF Generator/onereport.sarif.json'
           #          polaris_reports_sarif_file_path: '/Users/kirann/IdeaProjects/OWASP-NodeGoat/report.sarif.json' # File path (including file name) where SARIF report is created.
           #polaris_reports_sarif_severities: "HIGH"
