@@ -16,13 +16,13 @@ jobs:
         uses: blackduck-inc/black-duck-security-scan@main
         with:
           ### SCANNING: Required fields
-          #bridgecli_download_url: "https://artifactory.tools.duckutil.net/artifactory/clops-local/integrations/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip"
+          bridgecli_download_url: "https://artifactory.tools.duckutil.net/artifactory/clops-local/integrations/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip"
           #bridgecli_download_version: 3.4.25
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST,SCA"
-          #polaris_waitForScan: false
+          polaris_waitForScan: false
           #polaris_prComment_enabled: true 
           ### Coverity Connect users - Uncomment below
           # coverity_local: true
