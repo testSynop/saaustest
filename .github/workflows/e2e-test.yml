@@ -22,7 +22,7 @@ jobs:
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST,SCA"
-          polaris_prComment_enabled: true
+          #polaris_prComment_enabled: true
           #polaris_assessment_mode: "SOURCE_UPLOAD"
           #polaris_waitForScan: false
           
