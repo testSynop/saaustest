@@ -18,7 +18,7 @@ jobs:
           enable_bridge_thin_client: true
           ### SCANNING: Required fields
           #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-macos_arm.zip'
-          #bridgecli_download_version: 3.7.1
+          bridgecli_download_version: 3.0.43
           #bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle'   
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
@@ -29,21 +29,12 @@ jobs:
           bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
           #polaris_prComment_enabled: true 
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
-      - name: Polaris PR Scan
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
-        #uses: synopsys-sig/synopsys-action@main
-        with:
-          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_application_name: ${{ github.event.repository.name }}
-          polaris_project_name: ${{ github.event.repository.name }}
-          polaris_assessment_types: "SAST,SCA"
-          ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
-          polaris_prComment_enabled: true
-          polaris_upload_sarif_report: true
-          github_token: ${{ secrets.TOKEN }}
-          #network_airgap: true
-          # include_diagnostics: true
-          # Mandatory when polaris_prComment_enabled is set to 'true'
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+      - name: Cleanup Bridge CLI Thin Client
+        if: always()
+        run: |
+          if [ -d "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client" ]; then
+            rm -rf "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client"
+            echo "Deleted bridge-cli-thin-client directory"
+          else
+            echo "Bridge-cli-thin-client directory not found"
+          fi
