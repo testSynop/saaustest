@@ -24,23 +24,10 @@ jobs:
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST"
-          network_airgap: true
-          polaris_workflow_version: '3.0.42'
-          #bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
+          network_airgap: false
+          #polaris_workflow_version: '3.0.42'
+          bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
           #polaris_prComment_enabled: true 
-          ### Coverity Connect users - Uncomment below
-          # coverity_local: true
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
-          ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
-          polaris_reports_sarif_create: true
-          polaris_upload_sarif_report: true
-          # polaris_reports_sarif_file_path: '/Users/kirann/myagent/_work/OWASP-NodeGoat/OWASP-NodeGoat/.bridge/Polaris SARIF Generator/onereport.sarif.json'
-          #          polaris_reports_sarif_file_path: '/Users/kirann/IdeaProjects/OWASP-NodeGoat/report.sarif.json' # File path (including file name) where SARIF report is created.
-          #polaris_reports_sarif_severities: "HIGH"
-         #include_diagnostics: true
-          #          polaris_reports_sarif_groupSCAIssues: true
-          #          polaris_reports_sarif_issue_types: 'SCA'
-          #          polaris_upload_sarif_report: true
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
       - name: Polaris PR Scan
         if: ${{ github.event_name == 'pull_request' }}
