@@ -34,7 +34,7 @@ jobs:
           # polaris_reports_sarif_file_path: '/Users/kirann/myagent/_work/OWASP-NodeGoat/OWASP-NodeGoat/.bridge/Polaris SARIF Generator/onereport.sarif.json'
           #          polaris_reports_sarif_file_path: '/Users/kirann/IdeaProjects/OWASP-NodeGoat/report.sarif.json' # File path (including file name) where SARIF report is created.
           #polaris_reports_sarif_severities: "HIGH"
-          include_diagnostics: true
+         #include_diagnostics: true
           #          polaris_reports_sarif_groupSCAIssues: true
           #          polaris_reports_sarif_issue_types: 'SCA'
           #          polaris_upload_sarif_report: true
