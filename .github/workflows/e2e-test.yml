@@ -16,7 +16,8 @@ jobs:
         uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
         with:
           ### SCANNING: Required fields
-          bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/latest/bridge-cli-macos_arm.zip'
+          
+          bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.76/bridge-cli-macos_arm.zip'
           #bridgecli_download_version: 3.0.43
           bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle/bridge-cli-bundle-macos_arm'
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
