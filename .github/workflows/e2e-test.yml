@@ -18,7 +18,7 @@ jobs:
           ### SCANNING: Required fields
           #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/latest/bridge-cli-macos_arm.zip'
           #bridgecli_download_version: 3.4.99          enable_bridge_thin_client: false
-          #bridgecli_install_directory: '/Users/kiran/myagent'
+          bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle'   
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
