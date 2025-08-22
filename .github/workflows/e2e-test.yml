@@ -10,18 +10,9 @@ jobs:
   build:
     runs-on: [ self-hosted ]
     steps:
-      - name: Cleanup Bridge CLI Thin Client
-        if: always()
-        run: |
-          if [ -d "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client" ]; then
-            rm -rf "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client"
-            echo "Deleted bridge-cli-thin-client directory"
-          else
-            echo "Bridge-cli-thin-client directory not found"
-          fi
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Bridge Thin Client Disabled
+      - name: Bridge Thin Client Enabled
         uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
         with:
           enable_bridge_thin_client: true
