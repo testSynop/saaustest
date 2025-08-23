@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Bridge Thin Client Disabled -> NON AIRGAP
+      - name: Bridge Bundle -> NON AIRGAP
         uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
         with:
           enable_bridge_thin_client: false
