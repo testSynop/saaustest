@@ -25,7 +25,7 @@ jobs:
           polaris_assessment_types: "SAST"
           network_airgap: false
           #polaris_workflow_version: '3.0.42'
-          #bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
+          bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
           #polaris_prComment_enabled: true 
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
       
