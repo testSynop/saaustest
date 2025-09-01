@@ -23,7 +23,7 @@ jobs:
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST"
-          network_airgap: true
+          #network_airgap: true
           enable_bridge_thin_client: false
           #polaris_workflow_version: '3.0.42'
           bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
