@@ -23,7 +23,7 @@ jobs:
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
-          polaris_assessment_types: "SCA1"
+          polaris_assessment_types: "SCA"
           #polaris_reports_sarif_create: true
           #network_airgap: true
           enable_bridge_thin_client: false
