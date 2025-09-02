@@ -24,7 +24,7 @@ jobs:
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           include_diagnostics: true
           polaris_assessment_types: "SAST"
-          polaris_reports_sarif_create: true
+          #polaris_reports_sarif_create: true
           #network_airgap: true
           enable_bridge_thin_client: false
           #polaris_workflow_version: '3.0.42'
