@@ -70,5 +70,5 @@ jobs:
           polaris_prComment_severities: "CRITICAL,HIGH,MEDIUM,LOW"
           polaris_prComment_enabled: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverity_config_path: '/Users/kirann/Library/CloudStorage/OneDrive-BlackDuckSoftware/Desktop/coverity.yml'
+          coverity_config_path: '/Users/kirann/coverity.yml'
           mark_build_status: failure
