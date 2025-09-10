@@ -60,7 +60,7 @@ jobs:
       - name: Polaris PR Scan
         id: polaris-pr-scan
         if: ${{ github.event_name == 'pull_request' }}
-        uses: blackduck-inc/black-duck-security-scan@2.1.1
+        uses: blackduck-inc/black-duck-security-scan@v2.1.1
         with:
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
@@ -70,5 +70,5 @@ jobs:
           polaris_prComment_severities: "CRITICAL,HIGH,MEDIUM,LOW"
           polaris_prComment_enabled: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverity_config_path: coverity.yaml
+          coverity_config_path: '/Users/kirann/Library/CloudStorage/OneDrive-BlackDuckSoftware/Desktop/coverity.yml'
           mark_build_status: failure
