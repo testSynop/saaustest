@@ -6,7 +6,7 @@ on:
     branches: [main, master, develop, stage, release]
 jobs:
   polaris-scan:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
