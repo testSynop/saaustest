@@ -72,3 +72,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           coverity_config_path: '/Users/kirann/Downloads/Jun2025/coverity.yml'
           mark_build_status: failure
+          include_diagnostics: true
