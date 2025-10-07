@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Polaris Scan
-        uses: blackduck-inc/black-duck-security-scan@v2.4.0
+        uses: blackduck-inc/black-duck-security-scan@v2.1.1
         #continue-on-error: false
         with:
         
@@ -31,7 +31,7 @@ jobs:
           # polaris_project_name: "Node_Goat_Source_Archive_Aug18"
          
           ### Accepts Multiple Values
-          polaris_assessment_types: "SAST,SCA"
+          polaris_assessment_types: "SAST"
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           include_diagnostics: true
           #polaris_triage: NOT_ENTITLED
