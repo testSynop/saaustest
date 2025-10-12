@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v3
       - name: Bridge Thinclient > AIRGAP
-        uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
+        uses: blackduck-inc/black-duck-security-scan@SIGINT-2368_test
         with:
           ### SCANNING: Required fields
-          bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.76/bridge-cli-linux64.zip'
+          #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.76/bridge-cli-linux64.zip'
           #'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.87/bridge-cli-macos_arm.zip'
           #bridgecli_download_version: ''
           #bridgecli_base_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/'
