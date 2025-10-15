@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: [  ubuntu-latest ]
+    runs-on: [  self-hosted , macOS ]
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
@@ -32,4 +32,12 @@ jobs:
           #bridge_registry_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
           #polaris_prComment_enabled: true 
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
-      
+      - name: Cleanup Bridge CLI Files
+        run: |
+          if [ -d "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client" ]; then
+            echo "Cleaning up bridge-cli-thin-client files..."
+            rm -rf /Users/kirann/.blackduck/integrations/bridge-cli-thin-client/*
+            echo "Cleanup completed"
+          else
+            echo "Directory /Users/kirann/.blackduck/integrations/bridge-cli-thin-client does not exist, skipping cleanup"
+          fi
