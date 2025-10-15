@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Bridge Thinclient - AIRGAP
+      - name: Bridge BUndle - AIRGAP
         uses: blackduck-inc/black-duck-security-scan@SIGINT-2368_test
         with:
           ### SCANNING: Required fields
-          bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.43/bridge-cli-macos_arm.zip'
+          #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.43/bridge-cli-macos_arm.zip'
           #'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.87/bridge-cli-macos_arm.zip'
-          #bridgecli_download_version: '3.0.76'
+          bridgecli_download_version: '3.0.76'
           #bridgecli_base_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/'
           #bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle'   
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
@@ -27,7 +27,7 @@ jobs:
           polaris_assessment_types: "SCA"
           #polaris_reports_sarif_create: true
           network_airgap: true
-          enable_bridgecli_thin_client: true
+          enable_bridgecli_thin_client: false
           enable_workflow_update: false
           #polaris_workflow_version: '3.0.42'
           #bridge_registry_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
