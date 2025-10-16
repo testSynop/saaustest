@@ -27,7 +27,7 @@ jobs:
           #include_diagnostics: true
           polaris_assessment_types: "SCA"
           #polaris_reports_sarif_create: true
-          network_airgap: false
+          network_airgap: true
           enable_bridgecli_thin_client: false
           enable_workflow_update: true
           polaris_workflow_version: '3.0.42'
