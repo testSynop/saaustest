@@ -28,7 +28,7 @@ jobs:
           polaris_assessment_types: "SCA"
           #polaris_reports_sarif_create: true
           network_airgap: true
-          enable_bridgecli_thin_client: false
+          enable_bridgecli_thin_client: true
           enable_workflow_update: true
           polaris_workflow_version: '3.0.42'
           bridgecli_registry_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
