@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v3
       - name: Run Black Duck Security Scan (local)
-        uses: /Users/kirann/actions-runner/.github/actions/blackduck-scan
+        uses: ./.github/actions/blackduck-scan
         with:
           ### SCANNING: Required fields
           #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-bundle/3.3.0/bridge-cli-bundle-3.3.0-macos_arm.zip'
