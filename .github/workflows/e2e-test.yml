@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted macOS X64]
+    runs-on: [windows-latest]
     timeout-minutes: 20
     steps:
       - name: Checkout Source
@@ -16,31 +16,9 @@ jobs:
       - name: Bridge Bundle - AIRGAP
         uses: blackduck-inc/black-duck-security-scan@bridge-package-manager
         with:
-          ### SCANNING: Required fields
-          #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-bundle/3.3.0/bridge-cli-bundle-3.3.0-macos_arm.zip'
-          #'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.87/bridge-cli-macos_arm.zip'
-          #bridgecli_download_version: '3.8.1'
-          #bridgecli_base_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/'
-          bridgecli_install_directory: '/Users/kirann/.blackduck/integrations'
+         
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          #include_diagnostics: true
+          include_diagnostics: true
           polaris_assessment_types: "SCA"
-          #polaris_reports_sarif_create: true
-          network_airgap: true
-          enable_bridgecli_thin_client: false
-          enable_workflow_update:  true
-          polaris_workflow_version: '3.0.71'
-          bridgecli_registry_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
-          #polaris_prComment_enabled: true 
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
-#      - name: Cleanup Bridge CLI Files
-#        run: |
-#          if [ -d "/Users/kirann/.blackduck/integrations/bridge-cli-thin-client" ]; then
-#            echo "Cleaning up bridge-cli-thin-client files..."
-#            rm -rf /Users/kirann/.blackduck/integrations/bridge-cli-thin-client/*
-#            echo "Cleanup completed"
-#          else
-#            echo "Directory /Users/kirann/.blackduck/integrations/bridge-cli-thin-client does not exist, skipping cleanup"
-#          fi
-
