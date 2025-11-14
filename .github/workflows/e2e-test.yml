@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v3
       - name: Bridge 
-        uses: blackduck-inc/black-duck-security-scan@main
+        uses: blackduck-inc/black-duck-security-scan@bridge-package-manager
         with:
          
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
