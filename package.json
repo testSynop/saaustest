@@ -28,7 +28,9 @@
     "jquery": "2.2.4",
     "optional": "0.1.3",
     "file-type": "^8.1.0",
-    "moment": "2.15.1"
+    "moment": "2.15.1",
+    "lodash": "4.17.4"
+    
   },
   "comments": {
     "//": "a9 insecure components"
