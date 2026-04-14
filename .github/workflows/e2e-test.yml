@@ -12,23 +12,23 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Bridge Bundle --> NON AIRGAP
-        uses: blackduck-inc/black-duck-security-scan@SIGINT-2368
+      - name: Bridge Bundle
+        uses: blackduck-inc/black-duck-security-scan@main
         with:
           ### SCANNING: Required fields
           #bridgecli_download_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-bundle/3.8.0/bridge-cli-bundle-3.8.0-macos_arm.zip'
           #'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-thin-client/3.0.87/bridge-cli-macos_arm.zip'
           #bridgecli_download_version: 3.6.0
-          bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle'   
+          #bridgecli_install_directory: '/Users/kirann/bridge-cli-bundle'   
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          include_diagnostics: true
-          polaris_assessment_types: "SCA"
+          #include_diagnostics: true
+          polaris_assessment_types: "SCA,sast"
           #polaris_reports_sarif_create: true
           #network_airgap: true
-          enable_bridge_thin_client: false
+          #enable_bridge_thin_client: false
           #polaris_workflow_version: '3.0.42'
-          bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
+          #bridge_register_url: 'https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/bridge/package-manager/registries/registry.json'
           #polaris_prComment_enabled: true 
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
       
